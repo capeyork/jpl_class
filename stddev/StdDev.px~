@@ -1,0 +1,29 @@
+#! /usr/bin/python
+import math
+
+def stddev (l, s):
+    assert hasattr(l, '__iter__')
+
+    n = s
+    sum1 = 0
+    sum2 = 0
+ 
+#   iterate once to calculate mean
+    for x in l:
+        n = n + 1
+        sum1 = sum1 + x
+ 
+#   calculate mean - but using s as a seed to ensure consistent data types (int, float, etc)
+    mean = sum1/n
+    print(mean)
+ 
+#   iterate again to sum the differences
+    for x in l:
+        sum2 = sum2 + (x - mean)*(x - mean)
+    print(sum2)
+    stddev = sum2/(n)
+    print(stddev) 
+    return stddev
+
+result = stddev([1,2,3,4,5,6], 0.0)
+print(result)
